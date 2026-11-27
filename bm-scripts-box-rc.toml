@@ -1,0 +1,29 @@
+[bmscriptsbox]
+
+[bmscriptsbox.info]
+id = "9c04a898-d7e7-42b8-b190-f746938a9365"
+name = "Everything"
+desc = "在盒子搜索框输入关键词，即可直接调用 Everything 快速搜索本地文件"
+version = "1.0.0"
+icon = "./imgs/icon.png"
+
+[bmscriptsbox.runtime]
+language = "python"
+language_version = ">=3.12"
+entry = "main.py"
+terminal = "never"
+binaries = [{ name = "everything", env_set = false }]
+
+[[bmscriptsbox.inputs]]
+name = "keyword"
+label = "搜索关键词"
+type = "str"
+description = "盒子搜索框里输入的内容，原样作为 Everything 的 -search 参数"
+
+[bmscriptsbox.triggers.search]
+enabled = true
+
+[[bmscriptsbox.triggers.search.match]]
+kind = "text"
+regex = ".+"
+weight = 10
